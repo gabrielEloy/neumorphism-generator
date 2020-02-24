@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Container } from "./styles";
 
-function App() {
+import { OptionsContext } from './contexts/OptionsContext';
+import OptionsCard from "./components/OptionsCard";
+
+export default function App() {
+    const [mainColor, setMainColor] = useState('');
+
+
+    const options = {
+      mainColor,
+      setMainColor
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <OptionsContext.Provider value={options}>
+    <Container>
+      <div className="title">
+        <h1>Neumorphism Generator</h1>
+        <h2>Generate and understand neumorphism</h2>
+      </div>
+      <div className="main-content">
+        <div className="content-aligner left-side"></div>
+        <div className="content-aligner right-side">
+          <OptionsCard />
+        </div>
+      </div>
+    </Container>
+    </OptionsContext.Provider>
   );
 }
-
-export default App;
