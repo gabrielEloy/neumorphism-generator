@@ -5,7 +5,7 @@ import { OptionsContext } from './contexts/OptionsContext';
 import OptionsCard from "./components/OptionsCard";
 
 export default function App() {
-    const [mainColor, setMainColor] = useState('');
+    const [mainColor, setMainColor] = useState('#ff0000');
 
 
     const options = {

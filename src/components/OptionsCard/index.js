@@ -8,12 +8,14 @@ import ColorPickerSquare from '../ColorPickerSquare'
 function OptionsCard() {
   const options = useContext(OptionsContext);
   const { setMainColor, mainColor } = options;
-  console.log({ options });
+  console.log({options})
   return (
     <CardContainer>
       <div className="row header">
         <span className="">Pick a color</span>
-        <ColorPickerSquare />
+        <ColorPickerSquare 
+        color={mainColor}
+        onChange={setMainColor}/>
         <span> or</span>
         <input
           type="text"
