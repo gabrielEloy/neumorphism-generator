@@ -10,7 +10,8 @@ function OptionsCard() {
   const { setMainColor, mainColor } = options;
   console.log({options})
   return (
-    <CardContainer>
+    <CardContainer
+    id="options-card">
       <div className="row header">
         <span className="">Pick a color</span>
         <ColorPickerSquare 

@@ -10,6 +10,7 @@ export const CardContainer = styled.div`
   min-height: 480px;
   display: flex;
   flex-direction: column;
+  position: relative;
   .row{
     display: flex;
     align-items: center;
