@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Container, ColorSquare, ColorBall } from './styles';
+import { OptionsContext } from '../../contexts/OptionsContext';
 
 import TextRangeInput from '../TextRangeInput';
+import { RGBtoHex, hexToRGB } from '../../helpers/colorHelpers';
 
 export default function ColorBar() {
+  const options = useContext(OptionsContext);
   const [colorPicker, setColorPicker] = useState(colorPickerFactory());
-  const [colors, setRGBColors] = useState({
-    red: 0,
-    green: 0,
-    blue: 0,
-    Hex: ''
-  })
+  const [colors, setRGBColors] = useState(hexToRGB(options.mainColor));
+
+  useEffect(() => {
+    const { red, green, blue } = colors;
+    const { setMainColor } = options;
+    const hexColor = RGBtoHex(red, green, blue);
+    setMainColor(hexColor);
+  }, [colors])
+
 
   
   function getColorFromIndex(i){
@@ -41,18 +47,22 @@ export default function ColorBar() {
   };
 
   function handleColorChange(e, currentColor) {
-    setRGBColors({...colors, [currentColor]: parseInt(e.target.value)})
-  }
+    const value = e.target.value;
+    setRGBColors(prevState => {
+      return {...prevState, [currentColor]: value}
+    })
+  };
+  const { mainColor } = options;
   return (
     <Container>
       <div className="color-square-container">
-        <ColorSquare color="#ff0000"/>
-      teste
+        <ColorSquare color={mainColor}/>
+      {mainColor}
       </div>
 
       <div className="options-container">
       
-      {colorPicker.map((color ) => (
+      {colorPicker.map((color) => (
         <TextRangeInput
           minRange={color.minRange}
           maxRange={color.maxRange}

@@ -6,7 +6,7 @@ import { AbsolutePositionContainer } from "../AbsolutePositionContainer";
 import ColorBar from '../ColorBar';
 
 const ColorPickerSquare = ({ color, onChange }) => {
-  const [colorPickerVisibility, toggleColorPickerVisible] = useState(true);
+  const [colorPickerVisibility, toggleColorPickerVisible] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({
     left: -200,
     top: 0
