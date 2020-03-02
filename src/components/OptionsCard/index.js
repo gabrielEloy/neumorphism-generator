@@ -8,7 +8,6 @@ import ColorPickerSquare from '../ColorPickerSquare'
 function OptionsCard() {
   const options = useContext(OptionsContext);
   const { setMainColor, mainColor } = options;
-  console.log({options})
   return (
     <CardContainer
     id="options-card">
@@ -28,30 +27,35 @@ function OptionsCard() {
         <TextRangeInput
           minRange={10}
           maxRange={200}
+          onChange={() => console.log('yet to be developed')}
           value={20}
           label={"size"}
         />
         <TextRangeInput
           minRange={10}
           maxRange={200}
+          onChange={() => console.log('yet to be developed')}
           value={20}
           label={"size"}
         />
         <TextRangeInput
           minRange={10}
           maxRange={200}
+          onChange={() => console.log('yet to be developed')}
           value={20}
           label={"size"}
         />
         <TextRangeInput
           minRange={10}
           maxRange={200}
+          onChange={() => console.log('yet to be developed')}
           value={20}
           label={"size"}
         />
         <TextRangeInput
           minRange={10}
           maxRange={200}
+          onChange={() => console.log('yet to be developed')}
           value={20}
           label={"size"}
         />
