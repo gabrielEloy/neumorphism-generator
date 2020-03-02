@@ -27,9 +27,6 @@ const ColorPickerSquare = ({ color, onChange }) => {
 
     setTooltipPosition(finalPositions);
   }
-  function handleColorChange(color) {
-    onChange(color.hex);
-  }
   return (
     <>
       <Container color={color} onClick={handleColorBoxClick} />
