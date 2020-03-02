@@ -15,7 +15,8 @@ export default function TextRangeInput({
       <span className="label">{label}</span>
       <input 
         type="range" 
-        min={minRange} 
+        min={minRange}
+        onChange={onChange}
         max={maxRange} 
         value={value}
         className="range-input" />
