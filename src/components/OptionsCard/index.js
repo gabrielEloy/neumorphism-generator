@@ -33,6 +33,8 @@ function OptionsCard() {
       case 'blur':
         optionsDispatch({type: actionTypes.CHANGE_BLUR, value});
         break;
+      default: 
+        return;
     }
   }
 
@@ -51,35 +53,35 @@ function OptionsCard() {
       <div className="row options">
         <TextRangeInput
           minRange={10}
-          maxRange={200}
+          maxRange={400}
           onChange={e => handleOptionsChange(e, 'size')}
           value={size}
           label={"Size"}
         />
         <TextRangeInput
-          minRange={10}
-          maxRange={200}
+          minRange={0}
+          maxRange={Math.ceil(size/2)}
           onChange={e => handleOptionsChange(e, 'radius')}
           value={radius}
           label={"Radius"}
         />
         <TextRangeInput
-          minRange={10}
-          maxRange={200}
+          minRange={0}
+          maxRange={50}
           onChange={e => handleOptionsChange(e, 'distance')}
           value={distance}
           label={"Distance"}
         />
         <TextRangeInput
-          minRange={10}
-          maxRange={200}
+          minRange={0}
+          maxRange={0.6}
           onChange={e => handleOptionsChange(e, 'intensity')}
           value={intensity}
           label={"Intensity"}
         />
         <TextRangeInput
-          minRange={10}
-          maxRange={200}
+          minRange={0}
+          maxRange={100}
           onChange={e => handleOptionsChange(e, 'blur')}
           value={blur}
           label={"Blur"}
