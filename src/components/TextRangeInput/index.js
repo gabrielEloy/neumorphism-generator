@@ -12,7 +12,9 @@ export default function TextRangeInput({
   {
   return (
     <Container>
-      <span className="label">{label}</span>
+      <div className="text-box">
+        <span className="label">{label}</span>
+      </div>
       <input 
         type="range" 
         min={minRange}
