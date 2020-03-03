@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { Container } from "./styles";
 
 import { OptionsContext } from './contexts/OptionsContext';
 import OptionsCard from "./components/OptionsCard";
+import {optionsReducer, optionsInitialState} from './reducers/optionsReducer';
 
 export default function App() {
     const [mainColor, setMainColor] = useState('#ff0000');
 
+    const [cardOptions, optionsDispatch] = useReducer(optionsReducer, optionsInitialState);
+
     const options = {
       mainColor,
-      setMainColor
+      setMainColor,
+      cardOptions,
+      optionsDispatch
     }
   return (
     <OptionsContext.Provider value={options}>
