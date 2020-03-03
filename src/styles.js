@@ -25,7 +25,6 @@ export const Container = styled.div`
       align-items: center;
     }
     .left-side{
-      border: solid 5px red;
       position: relative;
       height: 90%;
       display: flex;
