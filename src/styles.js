@@ -25,6 +25,11 @@ export const Container = styled.div`
       align-items: center;
     }
     .left-side{
+      position: relative;
+      height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .right-side{
       

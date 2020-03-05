@@ -27,6 +27,8 @@ export default function ColorBar() {
         return 'green';
       case 2:
         return 'blue';
+      default: 
+        return;
     }
   }
   
