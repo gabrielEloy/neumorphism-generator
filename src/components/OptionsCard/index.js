@@ -74,7 +74,7 @@ function OptionsCard() {
         />
         <TextRangeInput
           minRange={0}
-          maxRange={0.6}
+          maxRange={100}
           onChange={e => handleOptionsChange(e, 'intensity')}
           value={intensity}
           label={"Intensity"}
