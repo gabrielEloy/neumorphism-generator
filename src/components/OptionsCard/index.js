@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { CardContainer } from "./styles";
 import { OptionsContext } from "../../contexts/OptionsContext";
+import { lightenDarkenColor } from '../../helpers/colorHelpers'
 
 import TextRangeInput from "../TextRangeInput";
 import ColorPickerSquare from "../ColorPickerSquare";
@@ -37,9 +38,19 @@ function OptionsCard() {
         return;
     }
   }
+  function generateBoxShadow () {
+    const { blur, distance, intensity } = options.cardOptions;
+    const lighterColor = lightenDarkenColor(mainColor, intensity);
+    const darkerColor = lightenDarkenColor(mainColor, -intensity);
+
+    return `${distance}px ${distance}px ${blur}px ${lighterColor},
+    -${distance}px -${distance}px ${blur}px ${darkerColor}`;
+  };
+
+  const boxShadow = generateBoxShadow();
 
   return (
-    <CardContainer color={mainColor} id="options-card">
+    <CardContainer boxShadow={boxShadow} color={mainColor} id="options-card">
       <div className="row header">
         <span className="">Pick a color</span>
         <ColorPickerSquare color={mainColor} onChange={setMainColor} />

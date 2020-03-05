@@ -41,7 +41,7 @@ export function RGBtoHex(red, green, blue){
 
 export const lightenDarkenColor = function (col, amt) {
 	var usePound = false;
-	if (col[0] == "#") {
+	if (col[0] === "#") {
 		col = col.slice(1);
 		usePound = true;
 	}
