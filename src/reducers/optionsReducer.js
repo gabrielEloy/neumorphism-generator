@@ -1,7 +1,7 @@
 import actionCreators from "../actions/actionCreators";
 
 export const optionsInitialState = {
-  size: 0,
+  size: 60,
   radius: 0,
   distance: 0,
   intensity: 0,
@@ -35,5 +35,7 @@ export function optionsReducer(state, action) {
         ...state,
         blur: action.value
       };
+    default:
+      return;
   }
 }
