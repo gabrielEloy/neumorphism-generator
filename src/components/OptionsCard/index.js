@@ -39,7 +39,7 @@ function OptionsCard() {
   }
 
   return (
-    <CardContainer id="options-card">
+    <CardContainer color={mainColor} id="options-card">
       <div className="row header">
         <span className="">Pick a color</span>
         <ColorPickerSquare color={mainColor} onChange={setMainColor} />

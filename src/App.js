@@ -22,7 +22,7 @@ export default function App() {
   };
   return (
     <OptionsContext.Provider value={options}>
-      <Container>
+      <Container color={mainColor}>
         <div className="title">
           <h1>Neumorphism Generator</h1>
           <h2>Generate and understand neumorphism</h2>

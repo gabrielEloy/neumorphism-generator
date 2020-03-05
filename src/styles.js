@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  background: ${props => props.color};
 
   .title {
     flex: 2;
