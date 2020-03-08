@@ -40,7 +40,8 @@ function OptionsCard() {
   }
   function generateBoxShadow () {
     const { blur, distance, intensity } = options.cardOptions;
-    const lighterColor = lightenDarkenColor(mainColor, intensity);
+    const lighterColor = 
+    (mainColor, intensity);
     const darkerColor = lightenDarkenColor(mainColor, -intensity);
 
     return `${distance}px ${distance}px ${blur}px ${lighterColor},
@@ -85,7 +86,7 @@ function OptionsCard() {
         />
         <TextRangeInput
           minRange={0}
-          maxRange={100}
+          maxRange={20}
           onChange={e => handleOptionsChange(e, 'intensity')}
           value={intensity}
           label={"Intensity"}
