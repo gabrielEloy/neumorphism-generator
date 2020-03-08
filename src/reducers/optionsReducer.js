@@ -2,10 +2,10 @@ import actionCreators from "../actions/actionCreators";
 
 export const optionsInitialState = {
   size: 60,
-  radius: 0,
-  distance: 0,
-  intensity: 0,
-  blur: 0
+  radius: 10,
+  distance: 10,
+  intensity: 30,
+  blur: 20
 };
 
 export function optionsReducer(state, action) {

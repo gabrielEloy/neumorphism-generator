@@ -11,6 +11,7 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  box-shadow: ${props => props.boxShadow};
   .row{
     display: flex;
     align-items: center;
