@@ -70,7 +70,8 @@ export default function ColorBar() {
           maxRange={color.maxRange}
           value={colors[color.colorName]}
           onChange={color.onChange}
-          label={color.label} />))}
+          label={color.label} 
+          colors={true}/>))}
       </div>
 
   </Container>
