@@ -7,7 +7,7 @@ import { optionsReducer, optionsInitialState } from "./reducers/optionsReducer";
 import NeumorphedSquare from "./components/NeumorphedSquare";
 
 export default function App() {
-  const [mainColor, setMainColor] = useState("#ff0000");
+  const [mainColor, setMainColor] = useState("#ffb7ab");
 
   const [cardOptions, optionsDispatch] = useReducer(
     optionsReducer,
