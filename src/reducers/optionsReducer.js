@@ -4,7 +4,7 @@ export const optionsInitialState = {
   size: 60,
   radius: 10,
   distance: 10,
-  intensity: 30,
+  intensity: 15,
   blur: 20
 };
 

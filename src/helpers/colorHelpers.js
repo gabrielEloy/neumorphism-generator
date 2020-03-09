@@ -40,7 +40,6 @@ export function RGBtoHex(red, green, blue){
 };
 
 export const lightenDarkenColor = function (col, amt) {
-    console.log('amt', amt);
     const hslColor = hexToHSL(col);
     const changedHSL = {...hslColor, l : hslColor.l + parseInt(amt)};
 
@@ -62,7 +61,7 @@ const hexToHSL = col => {
 
     let h,s,l = (max + min) / 2;
     
-    if(max == min){
+    if(max === min){
         h = s = 0;
     } else {
         let d = max - min;
@@ -117,11 +116,11 @@ function HSLToHex({h,s,l}) {
     b = Math.round((b + m) * 255).toString(16);
   
     // Prepend 0s, if necessary
-    if (r.length == 1)
+    if (r.length === 1)
       r = "0" + r;
-    if (g.length == 1)
+    if (g.length === 1)
       g = "0" + g;
-    if (b.length == 1)
+    if (b.length === 1)
       b = "0" + b;
   
     return "#" + r + g + b;

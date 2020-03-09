@@ -15,6 +15,7 @@ export default function TextRangeInput({
       <div className="text-box">
         <span className="label">{label}</span>
       </div>
+      <div className='tooltip-container'>
       <input 
         type="range" 
         min={minRange}
@@ -22,6 +23,7 @@ export default function TextRangeInput({
         max={maxRange} 
         value={value}
         className="range-input" />
+      </div>
     </Container>
   );
 }

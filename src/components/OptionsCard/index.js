@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { CardContainer } from "./styles";
 import { OptionsContext } from "../../contexts/OptionsContext";
-import { lightenDarkenColor } from '../../helpers/colorHelpers'
+import { lightenDarkenColor } from "../../helpers/colorHelpers";
 
 import TextRangeInput from "../TextRangeInput";
 import ColorPickerSquare from "../ColorPickerSquare";
-import actionTypes from '../../actions/actionCreators';
+import Tooltip from "../TooltipComponent";
+import actionTypes from "../../actions/actionCreators";
 
 function OptionsCard() {
   const options = useContext(OptionsContext);
@@ -16,40 +17,39 @@ function OptionsCard() {
     optionsDispatch
   } = options;
 
-  function handleOptionsChange(e, option){
+  function handleOptionsChange(e, option) {
     const value = e.target.value;
-    switch(option){
-      case 'size':
-        optionsDispatch({type: actionTypes.CHANGE_SIZE, value});
+    switch (option) {
+      case "size":
+        optionsDispatch({ type: actionTypes.CHANGE_SIZE, value });
         break;
-      case 'radius':
-        optionsDispatch({type: actionTypes.CHANGE_RADIUS, value});
+      case "radius":
+        optionsDispatch({ type: actionTypes.CHANGE_RADIUS, value });
         break;
-      case 'distance':
-        optionsDispatch({type: actionTypes.CHANGE_DISTANCE, value});
+      case "distance":
+        optionsDispatch({ type: actionTypes.CHANGE_DISTANCE, value });
         break;
-      case 'intensity':
-        optionsDispatch({type: actionTypes.CHANGE_INTENSITY, value});
+      case "intensity":
+        optionsDispatch({ type: actionTypes.CHANGE_INTENSITY, value });
         break;
-      case 'blur':
-        optionsDispatch({type: actionTypes.CHANGE_BLUR, value});
+      case "blur":
+        optionsDispatch({ type: actionTypes.CHANGE_BLUR, value });
         break;
-      default: 
+      default:
         return;
     }
   }
-  function generateBoxShadow () {
+  function generateBoxShadow() {
     const { blur, distance, intensity } = options.cardOptions;
-    const lighterColor = 
-    (mainColor, intensity);
+    const lighterColor = lightenDarkenColor(mainColor, intensity);
     const darkerColor = lightenDarkenColor(mainColor, -intensity);
 
     return `${distance}px ${distance}px ${blur}px ${lighterColor},
     -${distance}px -${distance}px ${blur}px ${darkerColor}`;
-  };
+  }
 
   const boxShadow = generateBoxShadow();
-
+  const tooltipPositioning = 'translate(-20px, 14px)'
   return (
     <CardContainer boxShadow={boxShadow} color={mainColor} id="options-card">
       <div className="row header">
@@ -63,41 +63,51 @@ function OptionsCard() {
         ></input>
       </div>
       <div className="row options">
-        <TextRangeInput
-          minRange={10}
-          maxRange={400}
-          onChange={e => handleOptionsChange(e, 'size')}
-          value={size}
-          label={"Size"}
-        />
-        <TextRangeInput
-          minRange={0}
-          maxRange={Math.ceil(size/2)}
-          onChange={e => handleOptionsChange(e, 'radius')}
-          value={radius}
-          label={"Radius"}
-        />
-        <TextRangeInput
-          minRange={0}
-          maxRange={50}
-          onChange={e => handleOptionsChange(e, 'distance')}
-          value={distance}
-          label={"Distance"}
-        />
-        <TextRangeInput
-          minRange={0}
-          maxRange={20}
-          onChange={e => handleOptionsChange(e, 'intensity')}
-          value={intensity}
-          label={"Intensity"}
-        />
-        <TextRangeInput
-          minRange={0}
-          maxRange={100}
-          onChange={e => handleOptionsChange(e, 'blur')}
-          value={blur}
-          label={"Blur"}
-        />
+        <Tooltip transformTooltip={tooltipPositioning} text={size}>
+          <TextRangeInput
+            minRange={10}
+            maxRange={400}
+            onChange={e => handleOptionsChange(e, "size")}
+            value={size}
+            label={"Size"}
+          />
+        </Tooltip>
+        <Tooltip transformTooltip={tooltipPositioning} text={radius}>
+          <TextRangeInput
+            minRange={0}
+            maxRange={Math.ceil(size / 2)}
+            onChange={e => handleOptionsChange(e, "radius")}
+            value={radius}
+            label={"Radius"}
+          />
+        </Tooltip>
+        <Tooltip transformTooltip={tooltipPositioning} text={distance}>
+          <TextRangeInput
+            minRange={0}
+            maxRange={50}
+            onChange={e => handleOptionsChange(e, "distance")}
+            value={distance}
+            label={"Distance"}
+          />
+        </Tooltip>
+        <Tooltip transformTooltip={tooltipPositioning} text={intensity}>
+          <TextRangeInput
+            minRange={0}
+            maxRange={30}
+            onChange={e => handleOptionsChange(e, "intensity")}
+            value={intensity}
+            label={"Intensity"}
+          />
+        </Tooltip>
+        <Tooltip transformTooltip={tooltipPositioning} text={blur}>
+          <TextRangeInput
+            minRange={0}
+            maxRange={100}
+            onChange={e => handleOptionsChange(e, "blur")}
+            value={blur}
+            label={"Blur"}
+          />
+        </Tooltip>
       </div>
       <div className="row shape">
         <span>Shape: </span>
