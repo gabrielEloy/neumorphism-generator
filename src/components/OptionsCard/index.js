@@ -6,6 +6,7 @@ import { lightenDarkenColor } from "../../helpers/colorHelpers";
 import TextRangeInput from "../TextRangeInput";
 import ColorPickerSquare from "../ColorPickerSquare";
 import Tooltip from "../TooltipComponent";
+import CodeContainer from '../CodeContainer';
 import actionTypes from "../../actions/actionCreators";
 
 function OptionsCard() {
@@ -114,7 +115,7 @@ function OptionsCard() {
         <div style={{ width: "80%", background: "black", height: 60 }}></div>
       </div>
       <div className="row code">
-        <div style={{ width: "80%", background: "black", height: 90 }}></div>
+        <CodeContainer content={{boxShadow, background: mainColor, "border-radius": `${radius}px`}}/>
       </div>
     </CardContainer>
   );
