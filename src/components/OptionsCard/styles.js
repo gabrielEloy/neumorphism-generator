@@ -24,6 +24,17 @@ export const CardContainer = styled.div`
   .header{
     flex: 1;
     flex-direction: row;
+    span{
+      margin: 0 5px;
+    }
+    input[type="text"]{
+      text-align: center;
+      border-radius: 3px;
+      border: solid 1px black;
+      height: 20px;
+      font-size: 1em;
+      letter-spacing: 0.02em;
+    }
   }
   .options{
     flex: 4;

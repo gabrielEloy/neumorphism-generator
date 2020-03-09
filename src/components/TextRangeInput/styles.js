@@ -14,6 +14,13 @@ export const Container = styled.div`
     justify-content: center;
   }
 
+  .color-label{
+    width: 25%;
+    margin-right: 10%;
+    height: 20px;
+    transform: translateY(-24px);
+  }
+
   .tooltip-container:hover, .tooltip-text {
     visibility: visible;
   }

@@ -8,11 +8,12 @@ export default function TextRangeInput({
   maxRange, 
   value,
   label,
-  onChange }) 
+  onChange,
+  colors }) 
   {
   return (
     <Container>
-      <div className="text-box">
+      <div className={colors ? 'color-label' : "text-box"}>
         <span className="label">{label}</span>
       </div>
       <div className='tooltip-container'>
