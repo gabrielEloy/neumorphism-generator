@@ -2,12 +2,31 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  width: 90%;
+  width: 100%;
   margin: 15px;
   justify-content: space-between;
+  position: relative;
 
+  .tooltip-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .tooltip-container:hover, .tooltip-text {
+    visibility: visible;
+  }
+  .tooltip-text{
+    visibility: hidden;
+  }
+
+  .text-box{
+    width: 25%;
+    margin-right: 10%;
+  }
   .range-input{
-      width: 70%;
+      width: 100%;
   }
 
   input[type=range]{
