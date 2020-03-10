@@ -1,11 +1,13 @@
 import actionCreators from "../actions/actionCreators";
+import SHAPES from '../constants/shape';
 
 export const optionsInitialState = {
   size: 60,
   radius: 10,
   distance: 10,
   intensity: 15,
-  blur: 20
+  blur: 20,
+  shape: SHAPES.FLAT
 };
 
 export function optionsReducer(state, action) {
@@ -35,6 +37,11 @@ export function optionsReducer(state, action) {
         ...state,
         blur: action.value
       };
+    case actionCreators.CHANGE_SHAPE:
+      return {
+        ...state,
+        shape: action.shape
+      }
     default:
       return;
   }
