@@ -10,6 +10,7 @@ export const Container = styled.div`
   align-items: flex-start;
   flex-direction: column;
   position: relative;
+  border: solid 3px black;
 
   .copy-button{
     background: white;

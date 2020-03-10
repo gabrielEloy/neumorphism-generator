@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { CardContainer } from "./styles";
 import { OptionsContext } from "../../contexts/OptionsContext";
-import { lightenDarkenColor } from "../../helpers/colorHelpers";
+import propTypes from 'prop-types';
+
 
 import TextRangeInput from "../TextRangeInput";
 import ColorPickerSquare from "../ColorPickerSquare";
@@ -12,7 +13,7 @@ import actionTypes from "../../actions/actionCreators";
 
 import SHAPES from "../../constants/shape";
 
-function OptionsCard() {
+function OptionsCard({ boxShadow }) {
   const options = useContext(OptionsContext);
   const {
     setMainColor,
@@ -43,16 +44,7 @@ function OptionsCard() {
         return;
     }
   }
-  function generateBoxShadow() {
-    const { blur, distance, intensity } = options.cardOptions;
-    const lighterColor = lightenDarkenColor(mainColor, intensity);
-    const darkerColor = lightenDarkenColor(mainColor, -intensity);
 
-    return `${distance}px ${distance}px ${blur}px ${lighterColor},
-    -${distance}px -${distance}px ${blur}px ${darkerColor}`;
-  }
-
-  const boxShadow = generateBoxShadow();
   const tooltipPositioning = "translate(-20px, 14px)";
 
   const buttons = [
@@ -165,6 +157,10 @@ function OptionsCard() {
       </div>
     </CardContainer>
   );
+}
+
+OptionsCard.propTypes = {
+  boxShadow: propTypes.string.isRequired
 }
 
 export default OptionsCard;

@@ -5,6 +5,7 @@ import { OptionsContext } from "./contexts/OptionsContext";
 import OptionsCard from "./components/OptionsCard";
 import { optionsReducer, optionsInitialState } from "./reducers/optionsReducer";
 import NeumorphedSquare from "./components/NeumorphedSquare";
+import { lightenDarkenColor } from './helpers/colorHelpers';
 
 export default function App() {
   const [mainColor, setMainColor] = useState("#ffb7ab");
@@ -20,6 +21,17 @@ export default function App() {
     cardOptions,
     optionsDispatch
   };
+
+  function generateBoxShadow() {
+    const { blur, distance, intensity } = cardOptions;
+    const lighterColor = lightenDarkenColor(mainColor, intensity);
+    const darkerColor = lightenDarkenColor(mainColor, -intensity);
+
+    return `${distance}px ${distance}px ${blur}px ${lighterColor},
+    -${distance}px -${distance}px ${blur}px ${darkerColor}`;
+  }
+
+  const boxShadow = generateBoxShadow();
   return (
     <OptionsContext.Provider value={options}>
       <Container color={mainColor}>
@@ -29,10 +41,10 @@ export default function App() {
         </div>
         <div className="main-content">
           <div className="content-aligner left-side">
-            <NeumorphedSquare color={mainColor} cardOptions={{...cardOptions}} />
+            <NeumorphedSquare boxShadow={boxShadow} color={mainColor} cardOptions={{...cardOptions}} />
           </div>
           <div className="content-aligner right-side">
-            <OptionsCard />
+            <OptionsCard boxShadow={boxShadow}/>
           </div>
         </div>
       </Container>
