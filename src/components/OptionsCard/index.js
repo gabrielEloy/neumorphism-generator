@@ -6,15 +6,18 @@ import { lightenDarkenColor } from "../../helpers/colorHelpers";
 import TextRangeInput from "../TextRangeInput";
 import ColorPickerSquare from "../ColorPickerSquare";
 import Tooltip from "../TooltipComponent";
-import CodeContainer from '../CodeContainer';
+import CodeContainer from "../CodeContainer";
+import ButtonRow from "../ButtonRow";
 import actionTypes from "../../actions/actionCreators";
+
+import SHAPES from "../../constants/shape";
 
 function OptionsCard() {
   const options = useContext(OptionsContext);
   const {
     setMainColor,
     mainColor,
-    cardOptions: { size, radius, distance, intensity, blur },
+    cardOptions: { size, radius, distance, intensity, blur, shape },
     optionsDispatch
   } = options;
 
@@ -50,7 +53,44 @@ function OptionsCard() {
   }
 
   const boxShadow = generateBoxShadow();
-  const tooltipPositioning = 'translate(-20px, 14px)'
+  const tooltipPositioning = "translate(-20px, 14px)";
+
+  const buttons = [
+    {
+      Content: <span>convex</span>,
+      onClick: () =>
+        optionsDispatch({
+          type: actionTypes.CHANGE_SHAPE,
+          shape: SHAPES.CONVEX
+        }),
+      index: SHAPES.CONVEX
+    },
+    {
+      Content: <span>concave</span>,
+      onClick: () =>
+        optionsDispatch({
+          type: actionTypes.CHANGE_SHAPE,
+          shape: SHAPES.CONCAVE
+        }),
+      index: SHAPES.CONCAVE
+    },
+    {
+      Content: <span>flat</span>,
+      onClick: () =>
+        optionsDispatch({ type: actionTypes.CHANGE_SHAPE, shape: SHAPES.FLAT }),
+      index: SHAPES.FLAT
+    },
+    {
+      Content: <span>pressed</span>,
+      onClick: () =>
+        optionsDispatch({
+          type: actionTypes.CHANGE_SHAPE,
+          shape: SHAPES.PRESSED
+        }),
+      index: SHAPES.PRESSED
+    }
+  ];
+
   return (
     <CardContainer boxShadow={boxShadow} color={mainColor} id="options-card">
       <div className="row header">
@@ -112,10 +152,16 @@ function OptionsCard() {
       </div>
       <div className="row shape">
         <span>Shape: </span>
-        <div style={{ width: "80%", background: "black", height: 60 }}></div>
+        <ButtonRow buttons={buttons} selected={shape} />
       </div>
       <div className="row code">
-        <CodeContainer content={{boxShadow, background: mainColor, "border-radius": `${radius}px`}}/>
+        <CodeContainer
+          content={{
+            boxShadow,
+            background: mainColor,
+            "border-radius": `${radius}px`
+          }}
+        />
       </div>
     </CardContainer>
   );
