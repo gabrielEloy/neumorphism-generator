@@ -6,6 +6,8 @@ import OptionsCard from "./components/OptionsCard";
 import { optionsReducer, optionsInitialState } from "./reducers/optionsReducer";
 import NeumorphedSquare from "./components/NeumorphedSquare";
 import { lightenDarkenColor } from './helpers/colorHelpers';
+import SHAPES from './constants/shape'
+
 
 export default function App() {
   const [mainColor, setMainColor] = useState("#ffb7ab");
@@ -23,12 +25,13 @@ export default function App() {
   };
 
   function generateBoxShadow() {
-    const { blur, distance, intensity } = cardOptions;
+    const { blur, distance, intensity, shape } = cardOptions;
     const lighterColor = lightenDarkenColor(mainColor, intensity);
     const darkerColor = lightenDarkenColor(mainColor, -intensity);
+    const pressed = shape === SHAPES.PRESSED ? 'inset' : '';
 
-    return `${distance}px ${distance}px ${blur}px ${lighterColor},
-    -${distance}px -${distance}px ${blur}px ${darkerColor}`;
+    return `${pressed} ${distance}px ${distance}px ${blur}px ${lighterColor},
+    ${pressed} -${distance}px -${distance}px ${blur}px ${darkerColor}`;
   }
 
   const boxShadow = generateBoxShadow();

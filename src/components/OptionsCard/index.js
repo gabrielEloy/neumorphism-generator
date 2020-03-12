@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CardContainer } from "./styles";
 import { OptionsContext } from "../../contexts/OptionsContext";
 import propTypes from 'prop-types';
+import { generateBackground } from '../../helpers/shapes';
 
 
 import TextRangeInput from "../TextRangeInput";
@@ -150,7 +151,7 @@ function OptionsCard({ boxShadow }) {
         <CodeContainer
           content={{
             boxShadow,
-            background: mainColor,
+            background: generateBackground(mainColor, shape),
             "border-radius": `${radius}px`
           }}
         />
