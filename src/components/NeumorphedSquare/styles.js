@@ -7,6 +7,5 @@ export const Square = styled.div`
     height: ${props => props.size}px;
     border-radius: ${props => props.radius}px;
     background: ${props => props.color};
-    box-shadow: ${props => `${props.distance}px ${props.distance}px ${props.blur}px ${props.lighterColor}, 
-             -${props.distance}px -${props.distance}px ${props.blur}px ${props.darkerColor};`}
+    box-shadow: ${props => props.boxShadow}
 `
