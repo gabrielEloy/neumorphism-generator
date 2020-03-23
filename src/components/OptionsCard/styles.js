@@ -12,6 +12,7 @@ export const CardContainer = styled.div`
   flex-direction: column;
   position: relative;
   box-shadow: ${props => props.boxShadow};
+  background-color: ${props => props.color};
   .row{
     display: flex;
     align-items: center;
@@ -28,11 +29,11 @@ export const CardContainer = styled.div`
       margin: 0 5px;
     }
     input[type="text"]{
-      text-align: center;
-      border-radius: 3px;
-      border: solid 1px black;
-      height: 20px;
-      font-size: 1em;
+      text-align: center;      
+      border: solid 2px black;
+      height: 22px;
+      width: 50%;
+      font-size: 1.3em;
       letter-spacing: 0.02em;
     }
   }
