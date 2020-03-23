@@ -26,7 +26,7 @@ export default function App() {
 
   function generateBoxShadow() {
     const { blur, distance, intensity, shape } = cardOptions;
-    const lighterColor = lightenDarkenColor(mainColor, intensity);
+    const lighterColor = lightenDarkenColor(mainColor, (intensity * 0.4));
     const darkerColor = lightenDarkenColor(mainColor, -intensity);
     const pressed = shape === SHAPES.PRESSED ? 'inset' : '';
 
