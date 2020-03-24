@@ -13,6 +13,7 @@ export const CardContainer = styled.div`
   position: relative;
   box-shadow: ${props => props.boxShadow};
   background-color: ${props => props.color};
+  color: ${({darkMode}) => darkMode ? 'white' : 'black'};
   .row{
     display: flex;
     align-items: center;

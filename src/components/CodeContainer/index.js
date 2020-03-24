@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Container } from './styles';
 
-export default function CodeContainer({content}) {
+export default function CodeContainer({content, darkMode}) {
     const [copyText, setCopy] = useState('copy');
     
     const keys = Object.keys(content)
@@ -16,7 +16,7 @@ export default function CodeContainer({content}) {
         });
     }
     return (
-        <Container>
+        <Container darkMode={darkMode}>
             <button onClick={getContainerCode} className="copy-button">
                 {copyText}
             </button>

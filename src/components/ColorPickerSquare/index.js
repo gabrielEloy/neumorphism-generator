@@ -7,18 +7,27 @@ import { SketchPicker } from 'react-color';
 const ColorPickerSquare = ({ color, onChange }) => {
   const [tooltipVisibility, toggleTooltipVisibility] = useState(false);
   const node = useRef();
-  useEffect(() => {
-    document.addEventListener("click", (e) => {
-      if(!node.current.contains(e.target)){
-        toggleTooltipVisibility(false);
-      }
-    })
+  
+  const exitOnPressEsc = e => {
+    if(e.key === 'Escape'){
+      toggleTooltipVisibility(false);
+    }
+  }
 
-    document.addEventListener("keyup", (e) => {
-      if(e.key === 'Escape'){
-        toggleTooltipVisibility(false);
-      }
-    })
+  const exitOnClickOutside = e => {
+    if(!node.current.contains(e.target)){
+      toggleTooltipVisibility(false);
+    }
+  }
+  
+  useEffect(() => {
+    document.addEventListener("click", exitOnClickOutside)
+    document.addEventListener("keyup", exitOnPressEsc)
+
+    return () => {
+      document.removeEventListener("click", exitOnClickOutside)
+      document.removeEventListener("keyup", exitOnPressEsc)
+    }
   })
   
   const handleColorChange = e => {

@@ -13,18 +13,18 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #292828;
-    color: white;
-    :hover{
+    background: ${({ darkMode }) => (darkMode ? "#eaeaea" : "#292828")};
+    color: ${({ darkMode }) => (darkMode ? "black" : "white")};
+    :hover {
       cursor: pointer;
-      background: white;
-      color: #292828;
-      transition: .3s;
+      background: ${({ darkMode }) => (darkMode ? "#292828" : "#eaeaea")};
+      color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+      transition: 0.3s;
     }
   }
 
-  .selected{
-    background: white;
-    color: #292828;
+  .selected {
+    background: ${({ darkMode }) => (darkMode ? "#292828" : "#eaeaea")};
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
 `;

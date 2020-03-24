@@ -10,6 +10,10 @@ export const Container = styled.div`
   .title {
     flex: 2;
     margin-top: 3%;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 5px;
+    font-size: 1.2em;
+    color: ${({darkMode}) => darkMode ? '#e2e2e2' : '#423a3a'};
     h2 {
       margin-top: 20px;
     }

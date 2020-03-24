@@ -20,7 +20,8 @@ function OptionsCard({ boxShadow }) {
     setMainColor,
     mainColor,
     cardOptions: { size, radius, distance, intensity, blur, shape },
-    optionsDispatch
+    optionsDispatch,
+    darkMode
   } = options;
 
   function handleOptionsChange(e, option) {
@@ -85,7 +86,7 @@ function OptionsCard({ boxShadow }) {
   ];
 
   return (
-    <CardContainer boxShadow={boxShadow} color={mainColor} id="options-card">
+    <CardContainer darkMode={darkMode} boxShadow={boxShadow} color={mainColor} id="options-card">
       <div className="row header">
         <span>Pick a color</span>
         <ColorPickerSquare color={mainColor} onChange={setMainColor} />
@@ -145,7 +146,7 @@ function OptionsCard({ boxShadow }) {
       </div>
       <div className="row shape">
         <span>Shape: </span>
-        <ButtonRow buttons={buttons} selected={shape} />
+        <ButtonRow darkMode={darkMode} buttons={buttons} selected={shape} />
       </div>
       <div className="row code">
         <CodeContainer
@@ -154,6 +155,7 @@ function OptionsCard({ boxShadow }) {
             background: generateBackground(mainColor, shape),
             "border-radius": `${radius}px`
           }}
+          darkMode={darkMode}
         />
       </div>
     </CardContainer>

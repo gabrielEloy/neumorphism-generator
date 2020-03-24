@@ -3,9 +3,9 @@ import { Container } from "./styles";
 
 import propTypes from "prop-types";
 
-export default function ButtonRow({ buttons, selected }) {
+export default function ButtonRow({ buttons, selected, darkMode }) {
   return (
-    <Container>
+    <Container darkMode={darkMode}>
       {buttons.map(button => (
         <div key={button.index} className={selected === button.index ? "row-item selected" : "row-item"} onClick={button.onClick}>
           {button.Content}
