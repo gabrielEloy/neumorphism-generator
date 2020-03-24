@@ -49,7 +49,7 @@ export const lightenDarkenColor = function (col, amt) {
     return HSLToHex(changedHSL);
 }
 
-const hexToHSL = col => {
+export const hexToHSL = col => {
     let { red, green, blue } = hexToRGB(col);
     
     red /= 255;

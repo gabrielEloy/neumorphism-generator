@@ -5,23 +5,30 @@ import { OptionsContext } from "./contexts/OptionsContext";
 import OptionsCard from "./components/OptionsCard";
 import { optionsReducer, optionsInitialState } from "./reducers/optionsReducer";
 import NeumorphedSquare from "./components/NeumorphedSquare";
-import { lightenDarkenColor } from './helpers/colorHelpers';
+import { lightenDarkenColor, hexToHSL } from './helpers/colorHelpers';
 import SHAPES from './constants/shape'
 
 
 export default function App() {
   const [mainColor, setMainColor] = useState("#ffb7ab");
+  const [darkMode, setDarkMode] = useState(false)
 
+  const handleMainColor = color => {
+    const { l: light } = hexToHSL(color)
+    setMainColor(color);
+    setDarkMode(light < 50);
+  }
   const [cardOptions, optionsDispatch] = useReducer(
     optionsReducer,
     optionsInitialState
   );
-
+  
   const options = {
     mainColor,
-    setMainColor,
+    setMainColor: handleMainColor,
     cardOptions,
-    optionsDispatch
+    optionsDispatch,
+    darkMode
   };
 
   function generateBoxShadow() {
@@ -37,7 +44,7 @@ export default function App() {
   const boxShadow = generateBoxShadow();
   return (
     <OptionsContext.Provider value={options}>
-      <Container color={mainColor}>
+      <Container color={mainColor} darkMode={darkMode}>
         <div className="title">
           <h1>Neumorphism Generator</h1>
           <h2>Generate and understand neumorphism</h2>

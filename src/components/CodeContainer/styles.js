@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  background: #292828;
+  background: ${({darkMode}) => darkMode ? '#eaeaea' : '#292828'};
   align-self: center;
   border-radius: 5px;
   display: flex;
@@ -10,10 +10,11 @@ export const Container = styled.div`
   align-items: flex-start;
   flex-direction: column;
   position: relative;
-  border: solid 3px black;
+  border: ${({darkMode}) => `solid 3px ${darkMode ? 'white' : 'black'}`};
 
   .copy-button{
-    background: white;
+    background: ${({darkMode}) => darkMode ? 'black' : 'white'};
+    color: ${({darkMode}) => darkMode ? 'white' : 'black'};
     position: absolute;
     right:  3%;
     top: 10%;
@@ -33,10 +34,10 @@ export const Container = styled.div`
     margin-left: 8%;
     margin: 1% 7%;
     .property-name {
-      color: #8080bb;
+      color: ${({darkMode}) => darkMode ? '#4c0e4acf' : '#8080bb'};
     }
     .property-content {
-      color: white;
+      color: ${({darkMode}) => darkMode ? 'black' : 'white'};
     }
   }
 `;
