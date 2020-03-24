@@ -12,8 +12,26 @@ export const Container = styled.div`
     ::-webkit-color-swatch {
       border: solid black 2px;
     }
-    :focus{
+    :focus {
       outline: none;
     }
   }
+`;
+
+export const AbsolutePositioningBox = styled.div`
+  position: absolute;
+  min-height: 330px;
+  z-index: 2;
+  left: 0;
+  top: -200px;
+  display: flex;
+  justify-content: center;
+  visibility: ${({visibility}) => visibility};
+`;
+
+export const ColorSquare = styled.div`
+  width: 20px;
+  height: 20px;
+  background: ${props => props.color};
+  border: solid 2px black;
 `;
