@@ -7,7 +7,7 @@ export default function ButtonRow({ buttons, selected }) {
   return (
     <Container>
       {buttons.map(button => (
-        <div className={selected === button.index ? "row-item selected" : "row-item"} onClick={button.onClick}>
+        <div key={button.index} className={selected === button.index ? "row-item selected" : "row-item"} onClick={button.onClick}>
           {button.Content}
         </div>
       ))}

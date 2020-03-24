@@ -16,6 +16,6 @@ export default function TooltipComponent({ children, text, transformTooltip }) {
 
 TooltipComponent.propTypes =  {
   children: propTypes.element.isRequired,
-  text: propTypes.string.isRequired,
+  text: propTypes.oneOfType([propTypes.string,propTypes.number]).isRequired,
   transformTooltip: propTypes.string
 }

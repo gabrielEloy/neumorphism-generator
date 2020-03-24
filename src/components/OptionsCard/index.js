@@ -87,7 +87,7 @@ function OptionsCard({ boxShadow }) {
   return (
     <CardContainer boxShadow={boxShadow} color={mainColor} id="options-card">
       <div className="row header">
-        <span className>Pick a color</span>
+        <span>Pick a color</span>
         <ColorPickerSquare color={mainColor} onChange={setMainColor} />
         <span>or</span>
         <input
