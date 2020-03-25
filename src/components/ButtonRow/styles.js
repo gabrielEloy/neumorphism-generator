@@ -27,4 +27,12 @@ export const Container = styled.div`
     background: ${({ darkMode }) => (darkMode ? "#292828" : "#eaeaea")};
     color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
+
+
+  @media screen and (max-width: 650px){
+    flex-direction: column;
+    margin: 30px 0;
+    height: 200px;
+  }
+
 `;
