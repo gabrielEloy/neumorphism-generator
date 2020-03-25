@@ -38,7 +38,7 @@ export const Container = styled.div`
     }
     .left-side {
       position: relative;
-      height: 100%;
+      height: 480px;
       display: flex;
       align-items: center;
       justify-content: center;
