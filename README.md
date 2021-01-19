@@ -2,7 +2,9 @@
 
 ## Introduction
 
-This is a study made about neumorphism and color transformation.
+Simply application made to study neumorphism and to be able to easily see what shapes and color combinatios will  look good with it
+
+![application image](./readme_imgs/app.png)
 
 You can check the content out at:
 
